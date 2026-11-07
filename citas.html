@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citas | Dejando Huellas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/4f4f4b8f2a.js" crossorigin="anonymous"></script>
+</head>
+<body class="pagina-inicio pagina-citas">
+  <header class="inicio-header">
+    <a class="inicio-logo" href="inicio.html" aria-label="Dejando Huellas, inicio">Dejando Huellas <span class="inicio-logo-pata">🐾</span></a>
+
+    <button class="inicio-menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="inicio-nav" id="mainNav" aria-label="Navegación principal">
+      <a class="inicio-nav-link" href="inicio.html"><span>⌂</span> Inicio</a>
+      <a class="inicio-nav-link activo" href="citas.html" aria-current="page"><span>▦</span> Citas</a>
+      <a class="inicio-nav-link" href="productos.html"><span>♧</span> Productos</a>
+      <a class="inicio-nav-link" href="cuidado.html"><span>♡</span> Cuidado</a>
+      <div class="inicio-mas-contenedor">
+        <button class="inicio-nav-link" id="masToggle" aria-expanded="false"><span>⋯</span> Más⌄</button>
+        <div class="inicio-dropdown" id="masMenu" hidden>
+          <a href="mis-citas.html">Mis citas</a>
+          <a href="historial.html">Historial</a>
+          <a href="ayuda.html">Ayuda</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="inicio-perfil-contenedor">
+      <button class="inicio-perfil" id="perfilToggle" aria-expanded="false">
+        <span class="inicio-avatar"><i class="fa-solid fa-user"></i></span>
+        <span class="inicio-saludo">Hola, Miguel</span><span aria-hidden="true">⌄</span>
+      </button>
+      <div class="inicio-dropdown" id="perfilMenu" hidden>
+        <a href="perfil.html">Mi perfil</a>
+        <a href="mis-citas.html">Mis citas</a>
+        <button type="button" id="cerrarSesion">Cerrar sesión</button>
+      </div>
+    </div>
+    <a class="salir-icono" href="index.html" title="Cerrar sesión" aria-label="Cerrar sesión"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+  </header>
+
+  <main class="citas-layout">
+    <aside class="panel-lateral">
+      <section class="lateral-intro">
+        <div class="icono-redondo">🐾</div>
+        <div><h2>Citas</h2><p>Agenda una cita para el cuidado de tu mascota con nuestros especialistas.</p></div>
+      </section>
+      <nav class="menu-citas" aria-label="Menú de citas">
+        <a class="menu-cita activo" href="citas.html"><i class="fa-regular fa-calendar-days"></i> Nueva cita</a>
+        <a class="menu-cita" href="mis-citas.html"><i class="fa-regular fa-calendar-check"></i> Mis citas</a>
+        <a class="menu-cita" href="historial.html"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+      </nav>
+      <section class="consejo-lateral">
+        <h3>🐾 &nbsp;Tu mascota en<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;las mejores manos</h3>
+        <p>Contamos con profesionales capacitados para garantizar su bienestar y salud.</p>
+        <span class="corazon-lateral">♡</span><span class="huellas-laterales">🐾</span>
+      </section>
+    </aside>
+
+    <section class="formulario-cita">
+      <form id="citaForm">
+        <section class="paso">
+          <h2 class="titulo-paso"><span>1.</span> Selecciona la fecha y hora</h2>
+          <div class="fecha-hora-grid">
+            <div class="calendario-seccion">
+              <h3 class="subtitulo-campo"><i class="fa-regular fa-calendar-days"></i> Fecha de la cita</h3>
+              <div class="calendario">
+                <div class="calendario-cabecera">
+                  <button type="button" id="mesAnterior" aria-label="Mes anterior">‹</button>
+                  <strong id="mesAnio">Noviembre 2026</strong>
+                  <button type="button" id="mesSiguiente" aria-label="Mes siguiente">›</button>
+                </div>
+                <div class="dias-semana" aria-hidden="true"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+                <div class="dias-grid" id="diasCalendario" aria-label="Días del mes"></div>
+              </div>
+              <p class="ayuda-campo" id="fechaSeleccionada">Selecciona un día disponible.</p>
+            </div>
+            <div class="horas-seccion">
+              <h3 class="subtitulo-campo"><i class="fa-regular fa-clock"></i> Hora de la cita</h3>
+              <div class="horas-grid" id="horasGrid">
+                <button type="button" class="hora" data-hora="8:00 a. m.">8:00 a. m.</button>
+                <button type="button" class="hora" data-hora="8:30 a. m.">8:30 a. m.</button>
+                <button type="button" class="hora" data-hora="9:00 a. m.">9:00 a. m.</button>
+                <button type="button" class="hora" data-hora="9:30 a. m.">9:30 a. m.</button>
+                <button type="button" class="hora" data-hora="10:00 a. m.">10:00 a. m.</button>
+                <button type="button" class="hora seleccionada" data-hora="10:30 a. m.">10:30 a. m.</button>
+                <button type="button" class="hora" data-hora="11:00 a. m.">11:00 a. m.</button>
+                <button type="button" class="hora" data-hora="11:30 a. m.">11:30 a. m.</button>
+                <button type="button" class="hora" data-hora="2:00 p. m.">2:00 p. m.</button>
+                <button type="button" class="hora" data-hora="2:30 p. m.">2:30 p. m.</button>
+                <button type="button" class="hora" data-hora="3:00 p. m.">3:00 p. m.</button>
+                <button type="button" class="hora" data-hora="3:30 p. m.">3:30 p. m.</button>
+              </div>
+              <p class="ayuda-campo" id="horaSeleccionada">Hora elegida: 10:30 a. m.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="paso">
+          <h2 class="titulo-paso"><span>🐾</span> 2. Información de la mascota</h2>
+          <div class="campos-mascota">
+            <label>Nombre de la mascota <b>*</b><input name="nombre" type="text" placeholder="Ej. Max" required maxlength="60"></label>
+            <label>Especie <b>*</b><select name="especie" required><option value="">Selecciona</option><option>Perro</option><option>Gato</option><option>Ave</option><option>Conejo</option><option>Otro</option></select></label>
+            <label>Raza<input name="raza" type="text" placeholder="Ej. Golden Retriever" maxlength="80"></label>
+            <label>Edad <b>*</b><input name="edad" type="text" placeholder="Ej. 3 años" required maxlength="30"></label>
+            <label>Sexo <b>*</b><select name="sexo" required><option value="">Selecciona</option><option>Macho</option><option>Hembra</option><option>No lo sé</option></select></label>
+            <label>Peso (kg) <b>*</b><input name="peso" type="number" min="0.1" max="300" step="0.1" placeholder="Ej. 12 kg" required></label>
+          </div>
+        </section>
+
+        <section class="paso paso-motivo">
+          <h2 class="titulo-paso"><span><i class="fa-solid fa-stethoscope"></i></span> 3. Motivo de la cita</h2>
+          <div class="motivo-grid">
+            <label class="motivo-label">Motivo <b>*</b>
+              <select name="motivo" required>
+                <option value="">Selecciona el motivo</option><option>Consulta general</option><option>Vacunación</option><option>Desparasitación</option><option>Control de salud</option><option>Peluquería y baño</option><option>Urgencia veterinaria</option><option>Otro</option>
+              </select>
+            </label>
+            <label class="descripcion-label">Descripción adicional (opcional)
+              <textarea name="descripcion" rows="3" placeholder="Cuéntanos más sobre lo que necesita tu mascota..." maxlength="500"></textarea>
+            </label>
+          </div>
+        </section>
+        <p class="mensaje-formulario" id="mensajeFormulario" role="status" aria-live="polite"></p>
+        <button class="boton-agendar" type="submit"><i class="fa-regular fa-calendar-check"></i> Agendar cita <span>→</span></button>
+      </form>
+    </section>
+
+    <aside class="resumen-panel">
+      <h2><i class="fa-regular fa-clipboard"></i> Resumen de tu cita</h2>
+      <div class="resumen-estado" id="resumenEstado"><span>🐾</span><div><strong>Aún no has seleccionado<br>una fecha y hora.</strong><p>Completa el formulario para ver el resumen de tu cita.</p></div></div>
+      <div class="foto-resumen" role="img" aria-label="Ilustración de un gato y un perro"><div class="mascotas-emoji">🐱 🐶</div><span class="corazon-resumen">♡</span><span class="rayos-resumen">〃</span></div>
+      <div class="beneficios">
+        <p><i class="fa-solid fa-paw"></i> Atención personalizada</p>
+        <p><i class="fa-solid fa-shield-heart"></i> Profesionales capacitados</p>
+        <p><i class="fa-regular fa-heart"></i> Cuidado y bienestar</p>
+        <p><i class="fa-regular fa-star"></i> Instalaciones seguras y cómodas</p>
+      </div>
+      <p class="frase-final">¡Tu mascota<br>siempre primero! <span>🐾</span></p>
+    </aside>
+  </main>
+
+  <footer class="inicio-footer citas-footer">
+    <div class="footer-marca"><strong>Dejando Huellas <span>🐾</span></strong><p>Amor, cuidado y bienestar para tus mascotas.</p></div>
+    <div class="footer-ubicacion"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
+    <div class="inicio-redes"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="TikTok">♪</a></div>
+    <button class="boton-cerrar-sesion" id="cerrarSesionFooter"><i class="fa-solid fa-paw"></i> Cerrar sesión</button>
+  </footer>
+  <script src="citas.js"></script>
+</body>
+</html>

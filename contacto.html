@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Contacta con Dejando Huellas. Estamos aquí para ayudarte con el cuidado de tus mascotas.">
+
+    <title>Contacto | Dejando Huellas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js" defer></script>
+
+    <style>
+        .contacto-contenido {
+            max-width: 1150px;
+            margin: auto;
+            padding: 50px 25px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .contacto-portada {
+            text-align: center;
+            padding: 45px 25px;
+            background: #fff0f4;
+            border-radius: 25px;
+        }
+
+        .contacto-portada .etiqueta {
+            color: #d66b91;
+            font-weight: 800;
+        }
+
+        .contacto-portada h1 {
+            color: #75465b;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin: 15px 0;
+        }
+
+        .contacto-portada h1 span {
+            color: #d66b91;
+        }
+
+        .contacto-portada p {
+            max-width: 650px;
+            margin: auto;
+            color: #725d66;
+            line-height: 1.8;
+        }
+
+        .contacto-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 30px;
+            margin-top: 45px;
+            align-items: start;
+        }
+
+        .contacto-formulario,
+        .contacto-informacion {
+            padding: 30px;
+            background: white;
+            border: 1px solid #f1dce4;
+            border-radius: 22px;
+            box-shadow: 0 5px 18px rgba(100, 50, 70, 0.07);
+        }
+
+        .contacto-formulario h2,
+        .contacto-informacion h2 {
+            color: #75465b;
+            margin-top: 0;
+        }
+
+        .contacto-formulario > p {
+            color: #806c75;
+            line-height: 1.6;
+        }
+
+        .contacto-campo {
+            margin-top: 18px;
+        }
+
+        .contacto-campo label {
+            display: block;
+            color: #75465b;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .contacto-campo input,
+        .contacto-campo select,
+        .contacto-campo textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #e8cbd7;
+            border-radius: 12px;
+            font: inherit;
+            color: #59434d;
+            background: #fffafb;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .contacto-campo input:focus,
+        .contacto-campo select:focus,
+        .contacto-campo textarea:focus {
+            border-color: #d66b91;
+            box-shadow: 0 0 0 3px rgba(214, 107, 145, 0.12);
+        }
+
+        .contacto-campo textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .contacto-enviar {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            background: #d66b91;
+            color: white;
+            font: inherit;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .contacto-enviar:hover {
+            background: #bd547b;
+            transform: translateY(-2px);
+        }
+
+        .contacto-dato {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            padding: 17px 0;
+            border-bottom: 1px solid #f3e3e9;
+        }
+
+        .contacto-dato:last-child {
+            border-bottom: none;
+        }
+
+        .contacto-icono {
+            min-width: 43px;
+            height: 43px;
+            display: grid;
+            place-items: center;
+            background: #fff0f4;
+            border-radius: 13px;
+            font-size: 1.3rem;
+        }
+
+        .contacto-dato h3 {
+            color: #c76589;
+            margin: 0 0 5px;
+        }
+
+        .contacto-dato p {
+            color: #725d66;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .contacto-horarios {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff7f9;
+            border-radius: 16px;
+        }
+
+        .contacto-horarios h3 {
+            color: #75465b;
+            margin-top: 0;
+        }
+
+        .contacto-horarios p {
+            color: #725d66;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .contacto-mensaje {
+            margin-top: 15px;
+            color: #75465b;
+            font-weight: 800;
+            line-height: 1.5;
+        }
+
+        .contacto-final {
+            margin-top: 45px;
+            padding: 30px;
+            text-align: center;
+            background: #fff0f4;
+            border-radius: 22px;
+        }
+
+        .contacto-final h2 {
+            color: #75465b;
+        }
+
+        .contacto-final p {
+            color: #725d66;
+        }
+
+        @media (max-width: 750px) {
+            .contacto-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="pagina-inicio">
+
+    <!-- ENCABEZADO -->
+
+    <header class="inicio-header">
+
+        <a href="inicio.html" class="inicio-logo">
+            <span class="inicio-logo-pata">🐾</span>
+            <span>Dejando Huellas</span>
+        </a>
+
+        <button class="inicio-menu-toggle"
+                id="menu-toggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu-principal">
+            ☰
+        </button>
+
+        <nav class="inicio-nav" id="menu-principal">
+
+            <a href="inicio.html" class="inicio-nav-link">
+                <span>⌂</span> Inicio
+            </a>
+
+            <a href="citas.html" class="inicio-nav-link">
+                <span>▦</span> Citas
+            </a>
+
+            <a href="productos.html" class="inicio-nav-link">
+                <span>♧</span> Productos
+            </a>
+
+            <a href="cuidado.html" class="inicio-nav-link">
+                <span>♡</span> Cuidados
+            </a>
+
+            <div class="inicio-mas-contenedor">
+
+                <button class="inicio-nav-link inicio-mas-boton"
+                        id="mas-boton"
+                        aria-expanded="false"
+                        aria-controls="menu-mas">
+                    Más <span>⌄</span>
+                </button>
+
+                <div class="inicio-dropdown" id="menu-mas" hidden>
+                    <a href="nosotros.html">Sobre nosotros</a>
+                    <a href="contacto.html">Contacto</a>
+                    <a href="ayuda.html">Ayuda</a>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-- PERFIL -->
+
+        <div class="inicio-perfil-contenedor">
+
+            <button class="inicio-perfil"
+                    id="perfil-boton"
+                    aria-expanded="false"
+                    aria-controls="menu-perfil">
+
+                <span class="inicio-avatar">👤</span>
+
+                <span class="inicio-saludo">
+                    Hola, <strong id="nombre-usuario">Usuario</strong>
+                </span>
+
+                <span>⌄</span>
+
+            </button>
+
+            <div class="inicio-dropdown inicio-dropdown-perfil"
+                 id="menu-perfil"
+                 hidden>
+
+                <a href="perfil.html">Mi perfil</a>
+                <a href="mis-mascotas.html">Mis mascotas</a>
+                <a href="mis-citas.html">Mis citas</a>
+
+                <button type="button" id="cerrar-sesion">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main class="contacto-contenido">
+
+        <section class="contacto-portada">
+
+            <span class="etiqueta">🐾 ESTAMOS PARA AYUDARTE</span>
+
+            <h1>Contácta<span>nos</span></h1>
+
+            <p>
+                ¿Tienes alguna pregunta, sugerencia o necesitas
+                información? En Dejando Huellas queremos escucharte.
+                Escríbenos y cuéntanos cómo podemos ayudarte.
+            </p>
+
+        </section>
+
+
+        <section class="contacto-layout">
+
+            <!-- FORMULARIO -->
+
+            <div class="contacto-formulario">
+
+                <h2>Envíanos un mensaje 💌</h2>
+
+                <p>
+                    Completa los siguientes campos para compartir
+                    tus dudas o comentarios con nosotros.
+                </p>
+
+                <form id="formulario-contacto">
+
+                    <div class="contacto-campo">
+                        <label for="contacto-nombre">Nombre completo</label>
+                        <input type="text"
+                               id="contacto-nombre"
+                               name="nombre"
+                               placeholder="Escribe tu nombre"
+                               required>
+                    </div>
+
+                    <div class="contacto-campo">
+                        <label for="contacto-correo">Correo electrónico</label>
+                        <input type="email"
+                               id="contacto-correo"
+                               name="correo"
+                               placeholder="ejemplo@correo.com"
+                               required>
+                    </div>
+
+                    <div class="contacto-campo">
+                        <label for="contacto-tema">Motivo del mensaje</label>
+
+                        <select id="contacto-tema" name="tema" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="Consulta">Consulta general</option>
+                            <option value="Servicios">Información sobre servicios</option>
+                            <option value="Citas">Ayuda con una cita</option>
+                            <option value="Productos">Consulta sobre productos</option>
+                            <option value="Sugerencia">Sugerencia</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="contacto-campo">
+                        <label for="contacto-mensaje">Tu mensaje</label>
+                        <textarea id="contacto-mensaje"
+                                  name="mensaje"
+                                  placeholder="Escribe aquí tu mensaje..."
+                                  required></textarea>
+                    </div>
+
+                    <button type="submit" class="contacto-enviar">
+                        Enviar mensaje 🐾
+                    </button>
+
+                    <p id="resultado-contacto"
+                       class="contacto-mensaje"
+                       role="status"
+                       aria-live="polite"></p>
+
+                </form>
+
+            </div>
+
+
+            <!-- INFORMACIÓN -->
+
+            <aside class="contacto-informacion">
+
+                <h2>Información de contacto</h2>
+
+                <div class="contacto-dato">
+
+                    <div class="contacto-icono">📧</div>
+
+                    <div>
+                        <h3>Correo electrónico</h3>
+                        <p>bktsuki889@gmail.com</p>
+                    </div>
+
+                </div>
+
+                <div class="contacto-dato">
+
+                    <div class="contacto-icono">📱</div>
+
+                    <div>
+                        <h3>Teléfono</h3>
+                        <p>3102315308</p>
+                    </div>
+
+                </div>
+
+                <div class="contacto-dato">
+
+                    <div class="contacto-icono">📍</div>
+
+                    <div>
+                        <h3>Ubicación</h3>
+                        <p>Atención virtual desde nuestra plataforma.</p>
+                    </div>
+
+                </div>
+
+                <div class="contacto-horarios">
+
+                    <h3>🕒 Horarios de atención</h3>
+
+                    <p>
+                        Lunes a viernes: 8:00 a. m. - 5:00 p. m.
+                        <br>
+                        Sábados: 9:00 a. m. - 1:00 p. m.
+                        <br>
+                        Domingos y festivos: Cerrado.
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <section class="contacto-final">
+
+            <h2>¡Nos encanta saber de ti! ❤️</h2>
+
+            <p>
+                Gracias por confiar en Dejando Huellas.
+                Juntos podemos construir un mundo con más amor
+                y cuidado para nuestras mascotas.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer class="inicio-footer">
+
+        <div class="inicio-footer-texto">
+
+            <p>© 2026 <strong>Dejando Huellas</strong></p>
+
+            <span class="inicio-separador">|</span>
+
+            <p>Amor, cuidado y bienestar para tus mascotas.</p>
+
+            <span class="inicio-footer-pata">🐾</span>
+
+        </div>
+
+        <div class="inicio-redes">
+
+            <a href="https://www.instagram.com/"
+               target="_blank"
+               rel="noopener noreferrer">◎</a>
+
+            <span>|</span>
+
+            <a href="https://www.tiktok.com/"
+               target="_blank"
+               rel="noopener noreferrer">♪</a>
+
+            <a href="https://www.youtube.com/"
+               target="_blank"
+               rel="noopener noreferrer">▶</a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- FUNCIONAMIENTO DEL FORMULARIO -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const formulario = document.getElementById("formulario-contacto");
+            const resultado = document.getElementById("resultado-contacto");
+
+            formulario.addEventListener("submit", (evento) => {
+
+                evento.preventDefault();
+
+                const nombre = document.getElementById("contacto-nombre").value.trim();
+
+                const mensaje = document.getElementById("contacto-mensaje").value.trim();
+
+                if (!nombre || !mensaje) {
+                    resultado.textContent = "Por favor, completa todos los campos.";
+                    return;
+                }
+
+                resultado.textContent =
+                    "¡Gracias, " + nombre + "! Tu mensaje se registró en este formulario.";
+
+                formulario.reset();
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

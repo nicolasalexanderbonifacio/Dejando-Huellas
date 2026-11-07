@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda | Dejando Huellas</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header-ayuda">
+    <div class="logo-ayuda">
+        <a href="index.html">
+            <span>🐾</span> Dejando Huellas
+        </a>
+    </div>
+
+    <nav class="nav-ayuda">
+        <a href="inicio.html">Inicio</a>
+        <a href="citas.html">Citas</a>
+        <a href="productos.html">Productos</a>
+        <a href="cuidado.html">Cuidado</a>
+        <a href="mis-citas.html">Mis citas</a>
+        <a href="historial.html">Historial</a>
+        <a href="ayuda.html" class="activo">Ayuda</a>
+    </nav>
+
+    <a href="perfil.html" class="perfil-ayuda">
+        👤 Mi perfil
+    </a>
+</header>
+
+<main class="ayuda-contenedor">
+
+    <section class="ayuda-portada">
+        <span class="ayuda-icono">🐶 🐱</span>
+        <h1>¿En qué podemos ayudarte?</h1>
+        <p>
+            Estamos aquí para resolver tus dudas y ayudarte
+            a brindar el mejor cuidado a tu mascota.
+        </p>
+
+        <div class="buscador-ayuda">
+            <input
+                type="text"
+                id="buscadorAyuda"
+                placeholder="Escribe tu pregunta..."
+            >
+            <button id="buscarBtn">Buscar</button>
+        </div>
+    </section>
+
+    <section class="ayuda-preguntas">
+        <h2>Preguntas frecuentes</h2>
+        <p class="subtitulo-ayuda">
+            Encuentra respuestas a las dudas más comunes.
+        </p>
+
+        <div id="listaPreguntas">
+
+            <div class="pregunta">
+                <button class="pregunta-btn">
+                    ¿Cómo puedo agendar una cita?
+                    <span>＋</span>
+                </button>
+                <div class="respuesta">
+                    <p>
+                        Ingresa al apartado de Citas, completa el formulario
+                        con los datos de tu mascota, selecciona el servicio
+                        y guarda tu solicitud.
+                    </p>
+                    <a href="citas.html">Ir a agendar una cita</a>
+                </div>
+            </div>
+
+            <div class="pregunta">
+                <button class="pregunta-btn">
+                    ¿Dónde puedo consultar mis citas?
+                    <span>＋</span>
+                </button>
+                <div class="respuesta">
+                    <p>
+                        Puedes consultar tus citas ingresando al apartado
+                        "Mis citas", donde encontrarás las citas que hayas
+                        registrado en este navegador.
+                    </p>
+                    <a href="mis-citas.html">Ver mis citas</a>
+                </div>
+            </div>
+
+            <div class="pregunta">
+                <button class="pregunta-btn">
+                    ¿Puedo cancelar una cita?
+                    <span>＋</span>
+                </button>
+                <div class="respuesta">
+                    <p>
+                        Sí. Entra a "Mis citas", busca la cita que deseas
+                        cancelar y utiliza la opción correspondiente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pregunta">
+                <button class="pregunta-btn">
+                    ¿Qué servicios ofrece Dejando Huellas?
+                    <span>＋</span>
+                </button>
+                <div class="respuesta">
+                    <p>
+                        Contamos con información sobre peluquería,
+                        salud, vacunación, alimentación, hospedaje
+                        y terapias para mascotas.
+                    </p>
+                    <a href="cuidado.html">Conocer los servicios</a>
+                </div>
+            </div>
+
+            <div class="pregunta">
+                <button class="pregunta-btn">
+                    ¿Cómo puedo cuidar mejor a mi mascota?
+                    <span>＋</span>
+                </button>
+                <div class="respuesta">
+                    <p>
+                        Proporciónale alimentación adecuada, agua limpia,
+                        ejercicio, higiene y visitas periódicas al veterinario.
+                    </p>
+                    <a href="cuidado.html">Ver consejos de cuidado</a>
+                </div>
+            </div>
+
+            <div class="pregunta">
+                <button class="pregunta-btn">
+                    ¿Mis citas se guardan automáticamente?
+                    <span>＋</span>
+                </button>
+                <div class="respuesta">
+                    <p>
+                        Las citas se guardan en el almacenamiento local
+                        del navegador. Por eso, no se comparten
+                        automáticamente entre diferentes dispositivos.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <p id="sinResultados" class="sin-resultados">
+            No encontramos preguntas relacionadas con tu búsqueda.
+        </p>
+    </section>
+
+    <section class="ayuda-accesos">
+        <h2>¿Necesitas hacer algo más?</h2>
+
+        <div class="accesos-grid">
+
+            <a href="citas.html" class="acceso-card">
+                <span>📅</span>
+                <h3>Agendar una cita</h3>
+                <p>Programa un servicio para tu mascota.</p>
+            </a>
+
+            <a href="mis-citas.html" class="acceso-card">
+                <span>📋</span>
+                <h3>Mis citas</h3>
+                <p>Consulta tus citas registradas.</p>
+            </a>
+
+            <a href="historial.html" class="acceso-card">
+                <span>🗂️</span>
+                <h3>Mi historial</h3>
+                <p>Revisa tus citas anteriores.</p>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="contacto-ayuda">
+        <h2>¿No encontraste tu respuesta?</h2>
+        <p>
+            Escríbenos tu duda y déjanos tus datos de contacto.
+        </p>
+
+        <form id="formAyuda">
+
+            <label for="nombreAyuda">Nombre</label>
+            <input
+                type="text"
+                id="nombreAyuda"
+                placeholder="Escribe tu nombre"
+                required
+            >
+
+            <label for="correoAyuda">Correo electrónico</label>
+            <input
+                type="email"
+                id="correoAyuda"
+                placeholder="ejemplo@correo.com"
+                required
+            >
+
+            <label for="temaAyuda">Tema de la consulta</label>
+            <select id="temaAyuda" required>
+                <option value="">Selecciona un tema</option>
+                <option value="Citas">Citas</option>
+                <option value="Servicios">Servicios</option>
+                <option value="Mascotas">Cuidado de mascotas</option>
+                <option value="Página web">Problemas con la página</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label for="mensajeAyuda">Tu mensaje</label>
+            <textarea
+                id="mensajeAyuda"
+                rows="5"
+                placeholder="Cuéntanos cómo podemos ayudarte..."
+                required
+            ></textarea>
+
+            <button type="submit">Enviar consulta</button>
+
+            <p id="mensajeConfirmacion"></p>
+
+        </form>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 Dejando Huellas | Cuidamos a quienes más quieres 🐾</p>
+    <button id="cerrarSesionFooter">Cerrar sesión</button>
+</footer>
+
+<script src="ayuda.js"></script>
+
+</body>
+</html>

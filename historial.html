@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial | Dejando Huellas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="historial.css">
+
+  <script src="https://kit.fontawesome.com/4f4f4b8f2a.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="pagina-inicio pagina-citas">
+
+<header class="inicio-header">
+  <a class="inicio-logo" href="inicio.html">
+    Dejando Huellas <span class="inicio-logo-pata">🐾</span>
+  </a>
+
+  <button class="inicio-menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+  <nav class="inicio-nav" id="mainNav">
+    <a class="inicio-nav-link" href="inicio.html"><span>⌂</span> Inicio</a>
+    <a class="inicio-nav-link" href="citas.html"><span>▦</span> Citas</a>
+    <a class="inicio-nav-link" href="productos.html"><span>♧</span> Productos</a>
+    <a class="inicio-nav-link" href="cuidado.html"><span>♡</span> Cuidado</a>
+
+    <div class="inicio-mas-contenedor">
+      <button class="inicio-nav-link" id="masToggle" aria-expanded="false">
+        <span>⋯</span> Más⌄
+      </button>
+
+      <div class="inicio-dropdown" id="masMenu" hidden>
+        <a href="mis-citas.html">Mis citas</a>
+        <a href="historial.html">Historial</a>
+        <a href="ayuda.html">Ayuda</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="inicio-perfil-contenedor">
+    <button class="inicio-perfil" id="perfilToggle" aria-expanded="false">
+      <span class="inicio-avatar"><i class="fa-solid fa-user"></i></span>
+      <span class="inicio-saludo">Hola, Miguel</span>
+      <span>⌄</span>
+    </button>
+
+    <div class="inicio-dropdown" id="perfilMenu" hidden>
+      <a href="perfil.html">Mi perfil</a>
+      <a href="mis-citas.html">Mis citas</a>
+      <button type="button" id="cerrarSesion">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <a class="salir-icono" href="index.html" title="Cerrar sesión">
+    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+  </a>
+</header>
+
+<main class="citas-layout">
+
+  <aside class="panel-lateral">
+    <section class="lateral-intro">
+      <div class="icono-redondo">🐾</div>
+      <div>
+        <h2>Historial</h2>
+        <p>Consulta el registro de las citas anteriores de tus mascotas.</p>
+      </div>
+    </section>
+
+    <nav class="menu-citas">
+      <a class="menu-cita" href="citas.html">
+        <i class="fa-regular fa-calendar-days"></i> Nueva cita
+      </a>
+
+      <a class="menu-cita" href="mis-citas.html">
+        <i class="fa-regular fa-calendar-check"></i> Mis citas
+      </a>
+
+      <a class="menu-cita activo" href="historial.html">
+        <i class="fa-solid fa-clock-rotate-left"></i> Historial
+      </a>
+    </nav>
+
+    <section class="consejo-lateral">
+      <h3>🐾 &nbsp;Su bienestar<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;es nuestra prioridad</h3>
+      <p>Un buen seguimiento ayuda a mantener saludables a nuestras mascotas.</p>
+      <span class="corazon-lateral">♡</span>
+      <span class="huellas-laterales">🐾</span>
+    </section>
+  </aside>
+
+  <section class="historial-contenido">
+
+    <div class="historial-encabezado">
+      <div>
+        <span class="historial-etiqueta">DEJANDO HUELLAS 🐾</span>
+        <h1>Historial de citas</h1>
+        <p>Revisa las citas anteriores y lleva un seguimiento del cuidado de tu mascota.</p>
+      </div>
+
+      <a href="citas.html" class="boton-nueva-cita">
+        <i class="fa-solid fa-plus"></i> Nueva cita
+      </a>
+    </div>
+
+    <div class="historial-resumen">
+      <div class="resumen-historial-card">
+        <span class="resumen-historial-icono">📋</span>
+        <div>
+          <strong id="totalHistorial">0</strong>
+          <p>Citas registradas</p>
+        </div>
+      </div>
+
+      <div class="resumen-historial-card">
+        <span class="resumen-historial-icono finalizadas">✓</span>
+        <div>
+          <strong id="totalFinalizadas">0</strong>
+          <p>Finalizadas</p>
+        </div>
+      </div>
+
+      <div class="resumen-historial-card">
+        <span class="resumen-historial-icono canceladas">✕</span>
+        <div>
+          <strong id="totalCanceladas">0</strong>
+          <p>Canceladas</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="historial-lista-cabecera">
+      <div>
+        <h2><i class="fa-solid fa-clock-rotate-left"></i> Registro de citas</h2>
+        <p>Aquí encontrarás las citas que ya terminaron o fueron canceladas.</p>
+      </div>
+
+      <select id="filtroHistorial" aria-label="Filtrar historial">
+        <option value="todas">Todas</option>
+        <option value="finalizadas">Finalizadas</option>
+        <option value="canceladas">Canceladas</option>
+      </select>
+    </div>
+
+    <div id="listaHistorial" class="lista-historial"></div>
+
+    <div id="historialVacio" class="historial-vacio" hidden>
+      <div class="historial-vacio-icono">🐶 🐱</div>
+      <h3>Tu historial está vacío</h3>
+      <p>Cuando una cita finalice o sea cancelada, aparecerá aquí.</p>
+      <a href="mis-citas.html" class="boton-nueva-cita">
+        Ver mis citas
+      </a>
+    </div>
+
+  </section>
+</main>
+
+<footer class="inicio-footer citas-footer">
+  <div class="footer-marca">
+    <strong>Dejando Huellas <span>🐾</span></strong>
+    <p>Amor, cuidado y bienestar para tus mascotas.</p>
+  </div>
+
+  <div class="footer-ubicacion">
+    <i class="fa-solid fa-location-dot"></i> Bogotá, Colombia
+  </div>
+
+  <div class="inicio-redes">
+    <a href="#" aria-label="Instagram">◎</a>
+    <a href="#" aria-label="Facebook">f</a>
+    <a href="#" aria-label="TikTok">♪</a>
+  </div>
+
+  <button class="boton-cerrar-sesion" id="cerrarSesionFooter">
+    <i class="fa-solid fa-paw"></i> Cerrar sesión
+  </button>
+</footer>
+
+<script src="historial.js"></script>
+
+</body>
+</html>

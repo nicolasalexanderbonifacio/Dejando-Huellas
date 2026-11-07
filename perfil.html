@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi perfil | Dejando Huellas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js" defer></script>
+
+    <style>
+        .perfil-contenido {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 22px 60px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .perfil-portada {
+            background: #fff0f4;
+            padding: 35px;
+            border-radius: 22px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .perfil-portada h1 {
+            color: #75465b;
+            font-size: 2.3rem;
+            margin: 10px 0;
+        }
+
+        .perfil-portada p {
+            color: #725d66;
+        }
+
+        .perfil-avatar {
+            width: 85px;
+            height: 85px;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            background: white;
+            border-radius: 50%;
+            font-size: 2.8rem;
+        }
+
+        .perfil-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .perfil-tarjeta {
+            background: white;
+            padding: 25px;
+            border: 1px solid #f1dce4;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(100, 50, 70, 0.07);
+        }
+
+        .perfil-tarjeta h2 {
+            color: #75465b;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        .perfil-dato {
+            padding: 13px 0;
+            border-bottom: 1px solid #f3e3e9;
+        }
+
+        .perfil-dato:last-child {
+            border-bottom: none;
+        }
+
+        .perfil-dato span {
+            display: block;
+            color: #a17d8c;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .perfil-dato strong {
+            display: block;
+            color: #59434d;
+            margin-top: 4px;
+            overflow-wrap: anywhere;
+        }
+
+        .perfil-cita {
+            padding: 13px;
+            background: #fff7f9;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+
+        .perfil-cita h3 {
+            color: #bd6083;
+            font-size: 1rem;
+            margin: 0 0 7px;
+        }
+
+        .perfil-cita p {
+            color: #725d66;
+            font-size: 0.9rem;
+            margin: 4px 0;
+        }
+
+        .perfil-boton {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            margin-top: 18px;
+            background: #d66b91;
+            color: white;
+            font-family: inherit;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .perfil-boton:hover {
+            background: #bd547b;
+        }
+
+        .perfil-formulario {
+            margin-top: 30px;
+        }
+
+        .perfil-formulario h2 {
+            color: #75465b;
+        }
+
+        .perfil-campo {
+            margin-top: 16px;
+        }
+
+        .perfil-campo label {
+            display: block;
+            color: #75465b;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .perfil-campo input,
+        .perfil-campo select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #e8cbd7;
+            border-radius: 11px;
+            background: #fffafb;
+            color: #59434d;
+            font: inherit;
+        }
+
+        .perfil-campo input:focus,
+        .perfil-campo select:focus {
+            outline: 2px solid #e9a8c0;
+        }
+
+        .perfil-formulario button {
+            width: 100%;
+        }
+
+        .perfil-mascotas {
+            margin-top: 30px;
+        }
+
+        .perfil-mascota {
+            display: flex;
+            gap: 13px;
+            align-items: center;
+            padding: 14px;
+            margin-top: 12px;
+            background: #fff7f9;
+            border-radius: 13px;
+        }
+
+        .perfil-mascota-icono {
+            font-size: 2rem;
+        }
+
+        .perfil-mascota h3 {
+            color: #bd6083;
+            margin: 0;
+        }
+
+        .perfil-mascota p {
+            color: #725d66;
+            margin: 4px 0 0;
+            font-size: 0.9rem;
+        }
+
+        .perfil-vacio {
+            color: #967e88;
+            padding: 12px 0;
+            line-height: 1.6;
+        }
+
+        .perfil-mensaje {
+            color: #75465b;
+            font-weight: 800;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 750px) {
+            .perfil-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .perfil-portada h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="pagina-inicio">
+
+    <!-- ENCABEZADO -->
+
+    <header class="inicio-header">
+
+        <a href="inicio.html" class="inicio-logo">
+            <span class="inicio-logo-pata">🐾</span>
+            <span>Dejando Huellas</span>
+        </a>
+
+        <button class="inicio-menu-toggle"
+                id="menu-toggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu-principal">
+            ☰
+        </button>
+
+        <nav class="inicio-nav" id="menu-principal">
+
+            <a href="inicio.html" class="inicio-nav-link">
+                <span>⌂</span> Inicio
+            </a>
+
+            <a href="citas.html" class="inicio-nav-link">
+                <span>▦</span> Citas
+            </a>
+
+            <a href="productos.html" class="inicio-nav-link">
+                <span>♧</span> Productos
+            </a>
+
+            <a href="cuidado.html" class="inicio-nav-link">
+                <span>♡</span> Cuidados
+            </a>
+
+            <div class="inicio-mas-contenedor">
+
+                <button class="inicio-nav-link inicio-mas-boton"
+                        id="mas-boton"
+                        aria-expanded="false"
+                        aria-controls="menu-mas">
+                    Más <span>⌄</span>
+                </button>
+
+                <div class="inicio-dropdown" id="menu-mas" hidden>
+                    <a href="nosotros.html">Sobre nosotros</a>
+                    <a href="contacto.html">Contacto</a>
+                    <a href="ayuda.html">Ayuda</a>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <div class="inicio-perfil-contenedor">
+
+            <button class="inicio-perfil"
+                    id="perfil-boton"
+                    aria-expanded="false"
+                    aria-controls="menu-perfil">
+
+                <span class="inicio-avatar">👤</span>
+
+                <span class="inicio-saludo">
+                    Hola, <strong id="nombre-usuario">Usuario</strong>
+                </span>
+
+                <span>⌄</span>
+
+            </button>
+
+            <div class="inicio-dropdown inicio-dropdown-perfil"
+                 id="menu-perfil"
+                 hidden>
+
+                <a href="perfil.html">Mi perfil</a>
+                <a href="mis-mascotas.html">Mis mascotas</a>
+                <a href="mis-citas.html">Mis citas</a>
+
+                <button type="button" id="cerrar-sesion">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTENIDO -->
+
+    <main class="perfil-contenido">
+
+        <section class="perfil-portada">
+
+            <div class="perfil-avatar">👤</div>
+
+            <h1>Mi perfil</h1>
+
+            <p>
+                Administra tus datos y los de tus mascotas
+                desde un solo lugar. 🐾
+            </p>
+
+        </section>
+
+
+        <div class="perfil-grid">
+
+            <!-- DATOS PERSONALES -->
+
+            <section class="perfil-tarjeta">
+
+                <h2>👤 Mis datos personales</h2>
+
+                <div class="perfil-dato">
+                    <span>Nombres</span>
+                    <strong id="dato-nombres">No disponible</strong>
+                </div>
+
+                <div class="perfil-dato">
+                    <span>Apellidos</span>
+                    <strong id="dato-apellidos">No disponible</strong>
+                </div>
+
+                <div class="perfil-dato">
+                    <span>Teléfono</span>
+                    <strong id="dato-telefono">No disponible</strong>
+                </div>
+
+                <div class="perfil-dato">
+                    <span>Correo electrónico</span>
+                    <strong id="dato-correo">No disponible</strong>
+                </div>
+
+            </section>
+
+
+            <!-- HISTORIAL DE CITAS -->
+
+            <section class="perfil-tarjeta">
+
+                <h2>📅 Historial de citas</h2>
+
+                <p class="perfil-vacio">
+                    Aquí puedes consultar un resumen de tus citas.
+                </p>
+
+                <div id="resumen-citas"></div>
+
+                <a href="historial.html" class="perfil-boton">
+                    Ver historial completo →
+                </a>
+
+            </section>
+
+        </div>
+
+
+        <!-- REGISTRAR MASCOTAS -->
+
+        <section class="perfil-tarjeta perfil-formulario">
+
+            <h2>🐶 Registrar una mascota</h2>
+
+            <p class="perfil-vacio">
+                Completa los datos para agregar una nueva mascota
+                a tu cuenta.
+            </p>
+
+            <form id="formulario-mascota">
+
+                <div class="perfil-campo">
+                    <label for="mascota-nombre">Nombre de la mascota</label>
+                    <input type="text"
+                           id="mascota-nombre"
+                           placeholder="Ejemplo: Luna"
+                           required>
+                </div>
+
+                <div class="perfil-campo">
+                    <label for="mascota-especie">Especie</label>
+
+                    <select id="mascota-especie" required>
+                        <option value="">Selecciona una especie</option>
+                        <option value="Perro">Perro</option>
+                        <option value="Gato">Gato</option>
+                        <option value="Ave">Ave</option>
+                        <option value="Conejo">Conejo</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="perfil-campo">
+                    <label for="mascota-raza">Raza</label>
+                    <input type="text"
+                           id="mascota-raza"
+                           placeholder="Escribe la raza">
+                </div>
+
+                <div class="perfil-campo">
+                    <label for="mascota-edad">Edad</label>
+                    <input type="number"
+                           id="mascota-edad"
+                           min="0"
+                           max="100"
+                           placeholder="Edad en años">
+                </div>
+
+                <div class="perfil-campo">
+                    <label for="mascota-sexo">Sexo</label>
+
+                    <select id="mascota-sexo">
+                        <option value="">Selecciona una opción</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Hembra">Hembra</option>
+                    </select>
+                </div>
+
+                <div class="perfil-campo">
+                    <label for="mascota-peso">Peso (kg)</label>
+                    <input type="number"
+                           id="mascota-peso"
+                           min="0"
+                           step="0.1"
+                           placeholder="Ejemplo: 5.5">
+                </div>
+
+                <button type="submit" class="perfil-boton">
+                    + Registrar mascota
+                </button>
+
+                <p id="mensaje-mascota"
+                   class="perfil-mensaje"
+                   role="status"
+                   aria-live="polite"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- MASCOTAS REGISTRADAS -->
+
+        <section class="perfil-tarjeta perfil-mascotas">
+
+            <h2>🐾 Mis mascotas registradas</h2>
+
+            <div id="lista-mascotas">
+                <p class="perfil-vacio">
+                    Todavía no tienes mascotas registradas.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer class="inicio-footer">
+
+        <div class="inicio-footer-texto">
+
+            <p>© 2026 <strong>Dejando Huellas</strong></p>
+
+            <span class="inicio-separador">|</span>
+
+            <p>Amor, cuidado y bienestar para tus mascotas.</p>
+
+            <span class="inicio-footer-pata">🐾</span>
+
+        </div>
+
+        <div class="inicio-redes">
+
+            <a href="https://www.instagram.com/"
+               target="_blank"
+               rel="noopener noreferrer">◎</a>
+
+            <span>|</span>
+
+            <a href="https://www.tiktok.com/"
+               target="_blank"
+               rel="noopener noreferrer">♪</a>
+
+            <a href="https://www.youtube.com/"
+               target="_blank"
+               rel="noopener noreferrer">▶</a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- FUNCIONAMIENTO DEL PERFIL -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const CLAVE_MASCOTAS = "dejanHuellaMascotas";
+            const CLAVE_CITAS = "dejanHuellaCitas";
+
+            // DATOS DE LA PERSONA
+
+            const sesionGuardada =
+                sessionStorage.getItem("dejanHuellaSesion");
+
+            let sesion = null;
+
+            try {
+                sesion = JSON.parse(sesionGuardada || "null");
+            } catch (error) {
+                sesion = null;
+            }
+
+            if (!sesion || !sesion.correo) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            const correoUsuario = sesion.correo;
+
+            let usuarios = [];
+
+            try {
+                usuarios = JSON.parse(
+                    localStorage.getItem("dejanHuellaUsuarios") || "[]"
+                );
+            } catch (error) {
+                usuarios = [];
+            }
+
+            const persona = usuarios.find(usuario =>
+                usuario.correo === correoUsuario
+            );
+
+            if (persona) {
+                document.getElementById("dato-nombres").textContent =
+                    persona.nombres || "No disponible";
+
+                document.getElementById("dato-apellidos").textContent =
+                    persona.apellidos || "No disponible";
+
+                document.getElementById("dato-telefono").textContent =
+                    persona.telefono || "No disponible";
+
+                document.getElementById("dato-correo").textContent =
+                    persona.correo || "No disponible";
+            }
+
+            // MASCOTAS DEL USUARIO
+
+            function obtenerMascotas() {
+                try {
+                    return JSON.parse(
+                        localStorage.getItem(CLAVE_MASCOTAS) || "[]"
+                    );
+                } catch (error) {
+                    return [];
+                }
+            }
+
+            function mostrarMascotas() {
+
+                const lista = document.getElementById("lista-mascotas");
+
+                const mascotas = obtenerMascotas().filter(mascota =>
+                    mascota.correoUsuario === correoUsuario
+                );
+
+                lista.innerHTML = "";
+
+                if (mascotas.length === 0) {
+                    lista.innerHTML =
+                        '<p class="perfil-vacio">Todavía no tienes mascotas registradas.</p>';
+                    return;
+                }
+
+                mascotas.forEach(mascota => {
+
+                    const tarjeta = document.createElement("div");
+                    tarjeta.className = "perfil-mascota";
+
+                    const icono = document.createElement("span");
+                    icono.className = "perfil-mascota-icono";
+                    icono.textContent =
+                        mascota.especie === "Gato" ? "🐱" :
+                        mascota.especie === "Ave" ? "🐦" :
+                        mascota.especie === "Conejo" ? "🐰" : "🐶";
+
+                    const informacion = document.createElement("div");
+
+                    const titulo = document.createElement("h3");
+                    titulo.textContent = mascota.nombre;
+
+                    const detalle = document.createElement("p");
+
+                    const datos = [
+                        mascota.especie,
+                        mascota.raza,
+                        mascota.edad !== "" ? mascota.edad + " años" : "",
+                        mascota.sexo,
+                        mascota.peso !== "" ? mascota.peso + " kg" : ""
+                    ].filter(Boolean);
+
+                    detalle.textContent = datos.join(" · ");
+
+                    informacion.appendChild(titulo);
+                    informacion.appendChild(detalle);
+
+                    tarjeta.appendChild(icono);
+                    tarjeta.appendChild(informacion);
+
+                    lista.appendChild(tarjeta);
+
+                });
+
+            }
+
+
+            // REGISTRAR UNA MASCOTA
+
+            document.getElementById("formulario-mascota")
+                .addEventListener("submit", (evento) => {
+
+                    evento.preventDefault();
+
+                    const nuevaMascota = {
+
+                        id: Date.now(),
+
+                        correoUsuario: correoUsuario,
+
+                        nombre: document.getElementById("mascota-nombre").value.trim(),
+
+                        especie: document.getElementById("mascota-especie").value,
+
+                        raza: document.getElementById("mascota-raza").value.trim(),
+
+                        edad: document.getElementById("mascota-edad").value,
+
+                        sexo: document.getElementById("mascota-sexo").value,
+
+                        peso: document.getElementById("mascota-peso").value
+
+                    };
+
+                    const mascotas = obtenerMascotas();
+
+                    mascotas.push(nuevaMascota);
+
+                    try {
+
+                        localStorage.setItem(
+                            CLAVE_MASCOTAS,
+                            JSON.stringify(mascotas)
+                        );
+
+                        document.getElementById("mensaje-mascota").textContent =
+                            "¡Mascota registrada correctamente! 🐾";
+
+                        document.getElementById("formulario-mascota").reset();
+
+                        mostrarMascotas();
+
+                    } catch (error) {
+
+                        document.getElementById("mensaje-mascota").textContent =
+                            "No se pudo guardar la mascota. Inténtalo nuevamente.";
+
+                    }
+
+                });
+
+
+            // RESUMEN DE CITAS
+
+            function mostrarCitas() {
+
+                const contenedor =
+                    document.getElementById("resumen-citas");
+
+                let citas = [];
+
+                try {
+                    citas = JSON.parse(
+                        localStorage.getItem(CLAVE_CITAS) || "[]"
+                    );
+                } catch (error) {
+                    citas = [];
+                }
+
+                // Mostrar las citas asociadas al usuario.
+                // Se usa el correo si está guardado en la cita.
+                const citasUsuario = citas.filter(cita =>
+                    !cita.correo || cita.correo === correoUsuario
+                );
+
+                citasUsuario.sort((a, b) => {
+
+                    const fechaA = new Date(
+                        (a.fecha || "") + "T" + (a.hora || "00:00")
+                    );
+
+                    const fechaB = new Date(
+                        (b.fecha || "") + "T" + (b.hora || "00:00")
+                    );
+
+                    return fechaB - fechaA;
+
+                });
+
+                contenedor.innerHTML = "";
+
+                if (citasUsuario.length === 0) {
+
+                    contenedor.innerHTML =
+                        '<p class="perfil-vacio">Todavía no tienes citas registradas.</p>';
+
+                    return;
+                }
+
+                citasUsuario.slice(0, 3).forEach(cita => {
+
+                    const tarjeta = document.createElement("div");
+                    tarjeta.className = "perfil-cita";
+
+                    const titulo = document.createElement("h3");
+                    titulo.textContent = "🐾 " + (cita.nombre || "Mascota");
+
+                    const fecha = document.createElement("p");
+                    fecha.textContent =
+                        "Fecha: " + (cita.fecha || "No disponible");
+
+                    const hora = document.createElement("p");
+                    hora.textContent =
+                        "Hora: " + (cita.hora || "No disponible");
+
+                    const estado = document.createElement("p");
+                    estado.textContent =
+                        "Estado: " + (cita.estado || "Pendiente");
+
+                    tarjeta.appendChild(titulo);
+                    tarjeta.appendChild(fecha);
+                    tarjeta.appendChild(hora);
+                    tarjeta.appendChild(estado);
+
+                    contenedor.appendChild(tarjeta);
+
+                });
+
+            }
+
+            mostrarMascotas();
+            mostrarCitas();
+
+        });
+    </script>
+
+</body>
+</html>

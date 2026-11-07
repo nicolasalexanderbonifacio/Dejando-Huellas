@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iniciar sesión | Dejando Huellas</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body class="pagina-login">
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+
+        <a href="index.html" class="logo">
+            Dejando Huellas <span class="pata-logo">🐾</span>
+        </a>
+
+        <nav class="navegacion">
+            <a href="login.html" class="boton-login">
+                Iniciar sesión
+            </a>
+
+            <a href="login.html?registro=1" class="boton-registro">
+                Registrarse
+            </a>
+        </nav>
+
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="login-main">
+
+        <span class="login-huella huella-izquierda">🐾</span>
+        <span class="login-huella huella-derecha">🐾</span>
+        <span class="login-huella huella-inferior">🐾</span>
+
+        <!-- FORMULARIO -->
+        <section class="login-formulario">
+
+            <div class="login-titulo">
+                <span class="login-pata-icono">🐾</span>
+
+                <h1 id="titulo-formulario">Iniciar sesión</h1>
+            </div>
+
+            <p class="login-descripcion" id="descripcion-formulario">
+                Ingresa a tu cuenta para acceder a todos
+                nuestros servicios y beneficios.
+            </p>
+
+            <form id="formulario-login">
+
+                <!-- CAMPOS DE REGISTRO -->
+                <div id="campos-registro" hidden>
+
+                    <div class="login-campo">
+                        <span class="login-icono">👤</span>
+
+                        <input
+                            type="text"
+                            id="nombres"
+                            placeholder="Nombres"
+                            autocomplete="given-name"
+                            disabled
+                        >
+                    </div>
+
+                    <div class="login-campo">
+                        <span class="login-icono">👤</span>
+
+                        <input
+                            type="text"
+                            id="apellidos"
+                            placeholder="Apellidos"
+                            autocomplete="family-name"
+                            disabled
+                        >
+                    </div>
+
+                    <div class="login-campo">
+                        <span class="login-icono">📱</span>
+
+                        <input
+                            type="tel"
+                            id="telefono"
+                            placeholder="Número de teléfono"
+                            autocomplete="tel"
+                            disabled
+                        >
+                    </div>
+
+                </div>
+
+                <!-- CORREO -->
+                <div class="login-campo">
+
+                    <span class="login-icono">✉</span>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="Correo electrónico"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+                <!-- CONTRASEÑA -->
+                <div class="login-campo">
+
+                    <span class="login-icono">🔒</span>
+
+                    <input
+                        type="password"
+                        id="contrasena"
+                        name="contrasena"
+                        placeholder="Contraseña"
+                        autocomplete="current-password"
+                        minlength="6"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="login-mostrar"
+                        id="mostrar-contrasena"
+                        aria-label="Mostrar contraseña"
+                        aria-pressed="false"
+                    >
+                        ◉
+                    </button>
+
+                </div>
+
+                <!-- CONFIRMAR CONTRASEÑA -->
+                <div class="login-campo" id="campo-confirmar" hidden>
+
+                    <span class="login-icono">🔒</span>
+
+                    <input
+                        type="password"
+                        id="confirmar-contrasena"
+                        placeholder="Confirmar contraseña"
+                        autocomplete="new-password"
+                        minlength="6"
+                        disabled
+                    >
+
+                </div>
+
+                <!-- OPCIONES DE INICIO -->
+                <div class="login-opciones" id="opciones-login">
+
+                    <label class="login-recordar">
+                        <input
+                            type="checkbox"
+                            id="recordarme"
+                        >
+                        <span>Recordarme</span>
+                    </label>
+
+                    <button
+                        type="button"
+                        class="login-enlace"
+                        id="abrir-recuperacion"
+                    >
+                        ¿Olvidaste tu contraseña?
+                    </button>
+
+                </div>
+
+                <!-- MENSAJES -->
+                <p
+                    class="login-mensaje"
+                    id="mensaje-login"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <!-- BOTÓN -->
+                <button
+                    type="submit"
+                    class="login-boton-principal"
+                    id="boton-enviar"
+                >
+                    <span id="texto-boton">Iniciar sesión</span>
+                    <span class="login-flecha">→</span>
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- PANEL LATERAL -->
+        <aside class="login-bienvenida">
+
+            <div class="login-circulo-pata">
+                🐾
+            </div>
+
+            <h2 id="titulo-bienvenida">
+                ¿Aún no tienes
+                <br>
+                una cuenta?
+            </h2>
+
+            <p id="texto-bienvenida">
+                Regístrate ahora y disfruta de todos
+                nuestros servicios: citas, productos,
+                cuidado para mascotas y mucho más.
+            </p>
+
+            <button
+                type="button"
+                class="login-boton-crear"
+                id="boton-crear-cuenta"
+            >
+                Crear cuenta <span>→</span>
+            </button>
+
+            <div class="login-mascotas">
+
+                <span class="login-corazon">♡</span>
+                <span class="login-rayos">〃</span>
+
+                <img
+                    src="assets/mascotas.png"
+                    alt="Un gato y un perro juntos"
+                >
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-pagina login-footer">
+
+        <p>
+            © 2026 <strong>Dejando Huellas</strong>
+            <span class="separador">|</span>
+            Amor, cuidado y bienestar para tus mascotas.
+            <span class="pata-footer">🐾</span>
+        </p>
+
+    </footer>
+
+    <!-- RECUPERACIÓN DE CONTRASEÑA -->
+    <dialog class="login-modal" id="modal-recuperacion">
+
+        <button
+            type="button"
+            class="login-cerrar-modal"
+            id="cerrar-modal"
+            aria-label="Cerrar ventana"
+        >
+            ×
+        </button>
+
+        <h2>Recuperar contraseña</h2>
+
+        <p>
+            Introduce tu correo electrónico para continuar
+            con la recuperación de tu cuenta.
+        </p>
+
+        <form id="formulario-recuperacion" novalidate>
+
+            <div class="login-campo">
+
+                <span class="login-icono">✉</span>
+
+                <input
+                    type="email"
+                    id="correo-recuperacion"
+                    placeholder="Correo electrónico"
+                    required
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="login-boton-principal"
+            >
+                Enviar instrucciones →
+            </button>
+
+            <p
+                class="login-mensaje"
+                id="mensaje-recuperacion"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+    </dialog>
+
+</body>
+</html>

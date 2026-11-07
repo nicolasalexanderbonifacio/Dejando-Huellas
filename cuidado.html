@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuidado | Dejando Huellas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/4f4f4b8f2a.js" crossorigin="anonymous"></script>
+</head>
+<body class="pagina-inicio pagina-cuidado">
+  <header class="inicio-header">
+    <a class="inicio-logo" href="inicio.html" aria-label="Dejando Huellas, inicio">Dejando Huellas <span class="inicio-logo-pata">🐾</span></a>
+    <button class="inicio-menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="inicio-nav" id="mainNav" aria-label="Navegación principal">
+      <a class="inicio-nav-link" href="inicio.html"><span>⌂</span> Inicio</a>
+      <a class="inicio-nav-link" href="citas.html"><span>▦</span> Citas</a>
+      <a class="inicio-nav-link" href="productos.html"><span>♧</span> Productos</a>
+      <a class="inicio-nav-link activo" href="cuidado.html" aria-current="page"><span>♡</span> Cuidado</a>
+      <div class="inicio-mas-contenedor">
+        <button class="inicio-nav-link" id="masToggle" aria-expanded="false"><span>⋯</span> Más⌄</button>
+        <div class="inicio-dropdown" id="masMenu" hidden>
+          <a href="mis-citas.html">Mis citas</a>
+          <a href="historial.html">Historial</a>
+          <a href="ayuda.html">Ayuda</a>
+        </div>
+      </div>
+    </nav>
+    <div class="inicio-perfil-contenedor">
+      <button class="inicio-perfil" id="perfilToggle" aria-expanded="false">
+        <span class="inicio-avatar"><i class="fa-solid fa-user"></i></span>
+        <span class="inicio-saludo">Hola, Miguel</span><span aria-hidden="true">⌄</span>
+      </button>
+      <div class="inicio-dropdown" id="perfilMenu" hidden>
+        <a href="perfil.html">Mi perfil</a>
+        <a href="mis-citas.html">Mis compras</a>
+        <button type="button" id="cerrarSesion">Cerrar sesión</button>
+      </div>
+    </div>
+    <a class="salir-icono" href="index.html" title="Cerrar sesión" aria-label="Cerrar sesión"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+  </header>
+
+  <main class="cuidado-layout">
+    <aside class="cuidado-lateral">
+      <div class="cuidado-intro">
+        <span class="cuidado-pata-redonda">🐾</span>
+        <div><h2>Cuidado</h2><p>Todo lo que tu mascota necesita para estar sana, feliz y siempre con las mejores atenciones.</p></div>
+      </div>
+      <nav class="cuidado-categorias" aria-label="Categorías de cuidado">
+        <button class="cuidado-categoria activa" data-filtro="todos"><i class="fa-solid fa-paw"></i>Servicios de cuidado</button>
+        <button class="cuidado-categoria" data-filtro="salud"><i class="fa-regular fa-heart"></i>Salud y bienestar</button>
+        <button class="cuidado-categoria" data-filtro="vacunacion"><i class="fa-solid fa-syringe"></i>Vacunación</button>
+        <button class="cuidado-categoria" data-filtro="peluqueria"><i class="fa-solid fa-scissors"></i>Peluquería y estética</button>
+        <button class="cuidado-categoria" data-filtro="alimentacion"><i class="fa-solid fa-bowl-food"></i>Alimentación especial</button>
+        <button class="cuidado-categoria" data-filtro="hospedaje"><i class="fa-solid fa-house"></i>Hospedaje</button>
+        <button class="cuidado-categoria" data-filtro="terapias"><i class="fa-solid fa-bone"></i>Terapias y rehabilitación</button>
+      </nav>
+      <div class="cuidado-consejo">
+        <h3><span>🐾</span> Cuidado integral</h3>
+        <p>Porque cada etapa de su vida merece atención especializada.</p>
+        <span class="cuidado-corazon">♡</span><span class="cuidado-huellas">🐾</span>
+      </div>
+    </aside>
+
+    <section class="cuidado-contenido">
+      <div class="cuidado-titulo">
+        <span class="titulo-pata">🐾</span>
+        <div><h1>Servicios de cuidado</h1><p>Nuestros servicios están diseñados para mantener a tu mascota saludable, feliz y siempre en las mejores condiciones.</p></div>
+      </div>
+      <div class="filtros-servicios" role="group" aria-label="Filtrar servicios">
+        <button class="filtro-servicio activo" data-filtro="todos">Todos</button>
+        <button class="filtro-servicio" data-filtro="peluqueria">Baño y peluquería</button>
+        <button class="filtro-servicio" data-filtro="salud">Salud</button>
+        <button class="filtro-servicio" data-filtro="bienestar">Bienestar</button>
+        <button class="filtro-servicio" data-filtro="hospedaje">Hospedaje</button>
+      </div>
+
+      <div class="servicios-grid" id="serviciosGrid">
+        <article class="servicio-card" data-tipo="peluqueria">
+          <div class="servicio-foto foto-bano" role="img" aria-label="Perro después del baño"><span>🐶</span><button class="guardar-servicio" aria-label="Guardar baño y peluquería" aria-pressed="false">♡</button></div>
+          <h3><span>🐾</span> Baño y peluquería canina</h3><p>Limpieza, corte de uñas, limpieza de oídos y mucho más.</p><strong class="precio-servicio">$ 35.000</strong><a class="boton-agendar" href="citas.html"><i class="fa-solid fa-calendar-check"></i> Agendar</a>
+        </article>
+        <article class="servicio-card" data-tipo="salud">
+          <div class="servicio-foto foto-veterinaria" role="img" aria-label="Gato en consulta veterinaria"><span>🐱</span><button class="guardar-servicio" aria-label="Guardar consulta veterinaria" aria-pressed="false">♡</button></div>
+          <h3><span>✚</span> Consulta veterinaria</h3><p>Revisión general, diagnóstico y seguimiento.</p><strong class="precio-servicio">$ 45.000</strong><a class="boton-agendar" href="citas.html"><i class="fa-solid fa-calendar-check"></i> Agendar</a>
+        </article>
+        <article class="servicio-card" data-tipo="bienestar">
+          <div class="servicio-foto foto-vacunas" role="img" aria-label="Perro listo para revisión"><span>🐕</span><button class="guardar-servicio" aria-label="Guardar plan de vacunación" aria-pressed="false">♡</button></div>
+          <h3><span>♥</span> Plan de vacunación</h3><p>Protege a tu mascota de enfermedades graves.</p><strong class="precio-servicio">$ 30.000</strong><a class="boton-agendar" href="citas.html"><i class="fa-solid fa-calendar-check"></i> Agendar</a>
+        </article>
+        <article class="servicio-card" data-tipo="hospedaje">
+          <div class="servicio-foto foto-hospedaje" role="img" aria-label="Gato descansando en una cama"><span>🐈</span><button class="guardar-servicio" aria-label="Guardar hospedaje temporal" aria-pressed="false">♡</button></div>
+          <h3><span>⌂</span> Hospedaje temporal</h3><p>Un lugar seguro y cómodo mientras estás fuera.</p><strong class="precio-servicio">$ 60.000 / noche</strong><a class="boton-agendar" href="citas.html"><i class="fa-solid fa-calendar-check"></i> Agendar</a>
+        </article>
+      </div>
+      <p class="sin-servicios" id="sinServicios" hidden>No hay servicios en esta categoría.</p>
+
+      <section class="tips-panel" id="tips">
+        <div class="tips-encabezado">
+          <span class="tips-icono"><i class="fa-regular fa-lightbulb"></i></span>
+          <div><h2>Tips para el cuidado de tu mascota</h2><p>Pequeños hábitos hacen una gran diferencia en su bienestar.</p></div>
+          <button class="ver-todos-tips" id="verTodosTips">Ver todos los tips <span>→</span></button>
+        </div>
+        <div class="tips-grid">
+          <article class="tip-card"><span class="tip-icono"><i class="fa-solid fa-bowl-food"></i></span><h3>Alimentación adecuada</h3><p>Dale un alimento de calidad y en porciones correctas según su edad y tamaño.</p><button class="ver-tip" data-tip="Alimentación adecuada|Elige un alimento apropiado para la especie, edad, tamaño y necesidades de tu mascota. Respeta las porciones recomendadas y consulta al veterinario antes de hacer cambios importantes en su dieta.">Ver más →</button></article>
+          <article class="tip-card"><span class="tip-icono"><i class="fa-solid fa-droplet"></i></span><h3>Hidratación constante</h3><p>El agua fresca siempre debe estar disponible, especialmente en días calurosos.</p><button class="ver-tip" data-tip="Hidratación constante|Cambia el agua a diario y lava el recipiente con frecuencia. Si notas que tu mascota bebe mucho más o mucho menos de lo habitual, consulta con un profesional veterinario.">Ver más →</button></article>
+          <article class="tip-card"><span class="tip-icono"><i class="fa-solid fa-paw"></i></span><h3>Ejercicio diario</h3><p>El juego y la actividad física mantienen su peso ideal y fortalecen sus músculos.</p><button class="ver-tip" data-tip="Ejercicio diario|Adapta los paseos y juegos a la edad, condición física y especie de tu mascota. Evita las horas de más calor y ofrece descansos y agua durante la actividad.">Ver más →</button></article>
+          <article class="tip-card"><span class="tip-icono"><i class="fa-solid fa-syringe"></i></span><h3>Higiene y cuidado</h3><p>Cepilla su pelaje, limpia sus oídos y revisa sus uñas regularmente.</p><button class="ver-tip" data-tip="Higiene y cuidado|Cepilla el pelaje con una frecuencia adecuada, revisa las uñas, los oídos y la piel, y usa únicamente productos diseñados para mascotas. Pide orientación veterinaria si observas irritación o molestias.">Ver más →</button></article>
+          <article class="tip-card"><span class="tip-icono"><i class="fa-regular fa-heart"></i></span><h3>Visitas veterinarias</h3><p>La prevención es clave. Mantén al día sus vacunas y chequeos médicos.</p><button class="ver-tip" data-tip="Visitas veterinarias|Programa controles preventivos y mantén al día el plan de vacunación y desparasitación que recomiende tu veterinario según la especie, edad y estilo de vida.">Ver más →</button></article>
+        </div>
+      </section>
+    </section>
+
+    <aside class="recordatorios-panel">
+      <h2><i class="fa-regular fa-clipboard"></i> Recordatorios de cuidado</h2>
+      <div class="recordatorio"><i class="fa-solid fa-syringe"></i><div><strong>Vacuna anual</strong><p>Revisa cuándo corresponde la próxima dosis.</p></div><span>Programar</span></div>
+      <div class="recordatorio"><i class="fa-solid fa-paw"></i><div><strong>Baño y peluquería</strong><p>Mantén una rutina de higiene adecuada.</p></div><span>Agendar</span></div>
+      <div class="recordatorio"><i class="fa-solid fa-bowl-food"></i><div><strong>Control nutricional</strong><p>Consulta si su alimentación sigue siendo adecuada.</p></div><span>Consultar</span></div>
+      <div class="cuidado-foto-lateral" role="img" aria-label="Ilustración de un perro y un gato"><span>🐱 🐶</span><b>♡</b><i>〃</i></div>
+      <div class="beneficios-cuidado">
+        <p><i class="fa-solid fa-shield-heart"></i> Profesionales capacitados</p>
+        <p><i class="fa-solid fa-shield-halved"></i> Atención personalizada</p>
+        <p><i class="fa-solid fa-shield"></i> Instalaciones seguras</p>
+        <p><i class="fa-solid fa-star"></i> Amor en cada detalle</p>
+      </div>
+      <p class="frase-cuidado">¡Su bienestar<br>es nuestra prioridad! <span>🐾</span></p>
+    </aside>
+  </main>
+
+  <dialog class="modal-tip" id="modalTip">
+    <button class="cerrar-modal-tip" id="cerrarModalTip" aria-label="Cerrar">×</button>
+    <span class="modal-pata">🐾</span><h2 id="modalTipTitulo">Consejo</h2><p id="modalTipTexto"></p>
+    <button class="modal-entendido" id="modalEntendido">Entendido</button>
+  </dialog>
+
+  <footer class="inicio-footer cuidado-footer">
+    <div class="footer-marca"><strong>Dejando Huellas <span>🐾</span></strong><p>Amor, cuidado y bienestar para tus mascotas.</p></div>
+    <div class="footer-ubicacion"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
+    <div class="inicio-redes"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="TikTok">♪</a></div>
+    <button class="boton-cerrar-sesion" id="cerrarSesionFooter"><i class="fa-solid fa-paw"></i> Cerrar sesión</button>
+  </footer>
+  <script src="cuidado.js"></script>
+</body>
+</html>

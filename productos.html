@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos | Dejando Huellas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/4f4f4b8f2a.js" crossorigin="anonymous"></script>
+</head>
+<body class="pagina-inicio pagina-productos">
+  <header class="inicio-header">
+    <a class="inicio-logo" href="inicio.html" aria-label="Dejando Huellas, inicio">Dejando Huellas <span class="inicio-logo-pata">🐾</span></a>
+    <button class="inicio-menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="inicio-nav" id="mainNav" aria-label="Navegación principal">
+      <a class="inicio-nav-link" href="inicio.html"><span>⌂</span> Inicio</a>
+      <a class="inicio-nav-link" href="citas.html"><span>▦</span> Citas</a>
+      <a class="inicio-nav-link activo" href="productos.html" aria-current="page"><span>♧</span> Productos</a>
+      <a class="inicio-nav-link" href="cuidado.html"><span>♡</span> Cuidado</a>
+      <div class="inicio-mas-contenedor">
+        <button class="inicio-nav-link" id="masToggle" aria-expanded="false"><span>⋯</span> Más⌄</button>
+        <div class="inicio-dropdown" id="masMenu" hidden>
+          <a href="mis-citas.html">Mis citas</a>
+          <a href="historial.html">Historial</a>
+          <a href="ayuda.html">Ayuda</a>
+        </div>
+      </div>
+    </nav>
+    <div class="inicio-perfil-contenedor">
+      <button class="inicio-perfil" id="perfilToggle" aria-expanded="false">
+        <span class="inicio-avatar"><i class="fa-solid fa-user"></i></span>
+        <span class="inicio-saludo">Hola, Miguel</span><span aria-hidden="true">⌄</span>
+      </button>
+      <div class="inicio-dropdown" id="perfilMenu" hidden>
+        <a href="perfil.html">Mi perfil</a>
+        <a href="mis-citas.html">Mis compras</a>
+        <button type="button" id="cerrarSesion">Cerrar sesión</button>
+      </div>
+    </div>
+    <a class="salir-icono" href="index.html" title="Cerrar sesión" aria-label="Cerrar sesión"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+  </header>
+
+  <main class="productos-layout">
+    <aside class="productos-lateral">
+      <div class="productos-lateral-intro">
+        <span class="productos-icono-redondo">🐾</span>
+        <div><h2>Productos</h2><p>Todo lo que tu mascota necesita para estar sana, feliz y siempre con las mejores atenciones.</p></div>
+      </div>
+      <nav class="categorias" aria-label="Categorías de productos">
+        <button class="categoria activa" data-categoria="Todos los productos"><i class="fa-solid fa-bag-shopping"></i>Todos los productos</button>
+        <button class="categoria" data-categoria="Alimento"><i class="fa-solid fa-bowl-food"></i>Alimento</button>
+        <button class="categoria" data-categoria="Accesorios"><i class="fa-solid fa-bone"></i>Accesorios</button>
+        <button class="categoria" data-categoria="Higiene y cuidado"><i class="fa-solid fa-pump-soap"></i>Higiene y cuidado</button>
+        <button class="categoria" data-categoria="Juguetes"><i class="fa-solid fa-baseball"></i>Juguetes</button>
+        <button class="categoria" data-categoria="Medicamentos"><i class="fa-solid fa-capsules"></i>Medicamentos</button>
+      </nav>
+      <div class="consejo-productos">
+        <h3><span>🐾</span> Lo mejor para<br> sus patitas</h3>
+        <p>Productos de calidad, seleccionados especialmente para su bienestar.</p>
+        <span class="consejo-corazon">♡</span><span class="huellas-decorativas">🐾</span>
+      </div>
+    </aside>
+
+    <section class="catalogo-panel" aria-label="Catálogo de productos">
+      <div class="catalogo-controles">
+        <label class="buscador-productos">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="buscarProducto" type="search" placeholder="Buscar productos..." aria-label="Buscar productos">
+        </label>
+        <select id="ordenarProductos" aria-label="Ordenar productos">
+          <option value="recomendados">Ordenar por</option>
+          <option value="nombre">Nombre: A-Z</option>
+          <option value="precio-asc">Precio: menor a mayor</option>
+          <option value="precio-desc">Precio: mayor a menor</option>
+        </select>
+      </div>
+      <div class="productos-grid" id="productosGrid" aria-live="polite"></div>
+      <p class="sin-resultados" id="sinResultados" hidden>No encontramos productos con esa búsqueda.</p>
+      <nav class="paginacion" id="paginacion" aria-label="Páginas del catálogo"></nav>
+    </section>
+
+    <aside class="compra-panel">
+      <h2><i class="fa-regular fa-clipboard"></i> Resumen de tu compra</h2>
+      <div class="compra-estado" id="compraEstado">
+        <span>🐾</span><div><strong>Aún no has agregado<br>productos a tu carrito.</strong><p>Explora nuestro catálogo y encuentra lo mejor para tu mascota.</p></div>
+      </div>
+      <div class="foto-mascotas" role="img" aria-label="Ilustración de un gato y un perro">
+        <span class="corazon-foto">♡</span><span class="rayos-foto">〃</span><span class="mascotas-emoji">🐱 🐶</span>
+      </div>
+      <div class="beneficios-productos">
+        <p><i class="fa-solid fa-shield-heart"></i> Productos originales</p>
+        <p><i class="fa-solid fa-truck"></i> Envíos a todo el país</p>
+        <p><i class="fa-solid fa-shield-halved"></i> Pagos seguros</p>
+        <p><i class="fa-solid fa-gear"></i> Atención personalizada</p>
+      </div>
+      <p class="frase-productos">¡Tu mascota<br>siempre primero! <span>🐾</span></p>
+    </aside>
+  </main>
+
+  <footer class="inicio-footer productos-footer">
+    <div class="footer-marca"><strong>Dejando Huellas <span>🐾</span></strong><p>Amor, cuidado y bienestar para tus mascotas.</p></div>
+    <div class="footer-ubicacion"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
+    <div class="inicio-redes"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="TikTok">♪</a></div>
+    <button class="boton-cerrar-sesion" id="cerrarSesionFooter"><i class="fa-solid fa-paw"></i> Cerrar sesión</button>
+  </footer>
+  <script src="productos.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Dejando Huellas: servicios, citas, productos y bienestar para tus mascotas.">
+
+    <title>Inicio | Dejando Huellas</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS original y estilos nuevos -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- JavaScript -->
+    <script src="./script.js" defer></script>
+</head>
+
+<body class="pagina-inicio">
+
+    <!-- ================= ENCABEZADO ================= -->
+
+    <header class="inicio-header">
+
+        <a href="inicio.html" class="inicio-logo" aria-label="Dejando Huellas, inicio">
+            <span class="inicio-logo-pata" aria-hidden="true">🐾</span>
+            <span>Dejando Huellas</span>
+        </a>
+
+        <button class="inicio-menu-toggle"
+                id="menu-toggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu-principal">
+            ☰
+        </button>
+
+        <nav class="inicio-nav" id="menu-principal" aria-label="Navegación principal">
+
+            <a href="inicio.html" class="inicio-nav-link activo">
+                <span aria-hidden="true">⌂</span>
+                Inicio
+            </a>
+
+            <a href="citas.html" class="inicio-nav-link">
+                <span aria-hidden="true">▦</span>
+                Citas
+            </a>
+
+            <a href="productos.html" class="inicio-nav-link">
+                <span aria-hidden="true">♧</span>
+                Productos
+            </a>
+
+            <a href="cuidado.html" class="inicio-nav-link">
+                <span aria-hidden="true">♡</span>
+                Cuidados
+            </a>
+
+            <div class="inicio-mas-contenedor">
+
+                <button class="inicio-nav-link inicio-mas-boton"
+                        id="mas-boton"
+                        aria-expanded="false"
+                        aria-controls="menu-mas">
+
+                    Más <span aria-hidden="true">⌄</span>
+
+                </button>
+
+                <div class="inicio-dropdown" id="menu-mas" hidden>
+
+                    <a href="nosotros.html">Sobre nosotros</a>
+                    <a href="contacto.html">Contacto</a>
+                    <a href="ayuda.html">Ayuda</a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- PERFIL DEL USUARIO -->
+
+        <div class="inicio-perfil-contenedor">
+
+            <button class="inicio-perfil"
+                    id="perfil-boton"
+                    aria-expanded="false"
+                    aria-controls="menu-perfil">
+
+                <span class="inicio-avatar" aria-hidden="true">👤</span>
+
+                <span class="inicio-saludo">
+    Hola, <strong id="nombre-usuario"></strong>
+</span>
+
+                <span aria-hidden="true">⌄</span>
+
+            </button>
+
+            <div class="inicio-dropdown inicio-dropdown-perfil"
+                 id="menu-perfil"
+                 hidden>
+
+                <a href="perfil.html">Mi perfil</a>
+                <a href="mis-mascotas.html">Mis mascotas</a>
+                <a href="mis-citas.html">Mis citas</a>
+
+                <button type="button" id="cerrar-sesion">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTENIDO PRINCIPAL ================= -->
+
+    <main class="inicio-contenido">
+
+        <!-- HERO / BIENVENIDA -->
+
+        <section class="inicio-hero">
+
+            <div class="inicio-hero-texto">
+
+                <div class="inicio-etiqueta">
+                    <span aria-hidden="true">🐾</span>
+                    Tu pet shop de confianza
+                </div>
+
+                <h1>
+                    ¡Bienvenido,
+                    <span id="nombre-bienvenida">Miguel</span>!
+                </h1>
+
+                <p class="inicio-descripcion">
+                    En Dejando Huellas cuidamos a tus mascotas
+                    con amor, ofreciéndote citas, productos y mucho más.
+                </p>
+
+                <a href="citas.html" class="inicio-boton-principal">
+                    <span aria-hidden="true">▦</span>
+                    Agendar una cita
+                    <span class="inicio-flecha" aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+
+            <!-- IMAGEN PRINCIPAL -->
+
+            <div class="inicio-hero-imagen">
+
+                <div class="inicio-mancha"></div>
+
+                <span class="inicio-huella hero-huella-uno"
+                      aria-hidden="true">🐾</span>
+
+                <span class="inicio-huella hero-huella-dos"
+                      aria-hidden="true">🐾</span>
+
+                <span class="inicio-corazon"
+                      aria-hidden="true">♡</span>
+
+                <span class="inicio-rayas"
+                      aria-hidden="true">〃</span>
+
+                <img
+                    src="assets/mascotas.png"
+                    alt="Un perro y un gato, compañeros de aventuras"
+                    class="inicio-img-mascotas"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SERVICIOS ================= -->
+
+        <section class="inicio-servicios" aria-labelledby="titulo-servicios">
+
+            <div class="inicio-titulo-seccion">
+
+                <span></span>
+
+                <h2 id="titulo-servicios">Nuestros Servicios</h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="inicio-grid-servicios">
+
+                <!-- SERVICIO 1 -->
+
+                <a href="citas.html" class="inicio-card-servicio">
+
+                    <div class="inicio-icono-servicio" aria-hidden="true">
+                        ▦
+                    </div>
+
+                    <h3>Citas Veterinarias</h3>
+
+                    <p>
+                        Agenda fácilmente
+                        <br>
+                        el cuidado de tu mascota.
+                    </p>
+
+                </a>
+
+
+                <!-- SERVICIO 2 -->
+
+                <a href="productos.html" class="inicio-card-servicio">
+
+                    <div class="inicio-icono-servicio" aria-hidden="true">
+                        ♧
+                    </div>
+
+                    <h3>Productos</h3>
+
+                    <p>
+                        Todo lo que necesitas
+                        <br>
+                        en un solo lugar.
+                    </p>
+
+                </a>
+
+
+                <!-- SERVICIO 3 -->
+
+                <a href="cuidados.html" class="inicio-card-servicio">
+
+                    <div class="inicio-icono-servicio" aria-hidden="true">
+                        🐾
+                    </div>
+
+                    <h3>Cuidado y Bienestar</h3>
+
+                    <p>
+                        Porque su salud es lo primero.
+                    </p>
+
+                </a>
+
+
+                <!-- SERVICIO 4 -->
+
+                <a href="servicios.html" class="inicio-card-servicio">
+
+                    <div class="inicio-icono-servicio" aria-hidden="true">
+                        ♡
+                    </div>
+
+                    <h3>Y mucho más...</h3>
+
+                    <p>
+                        Descubre todos nuestros
+                        <br>
+                        servicios.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MENSAJE INFERIOR ================= -->
+
+        <section class="inicio-mensaje-amor">
+
+            <span class="inicio-mensaje-pata" aria-hidden="true">
+                🐾
+            </span>
+
+            <p>
+                Porque ellos también dejan huellas en nuestros corazones
+            </p>
+
+            <span class="inicio-mensaje-corazon" aria-hidden="true">
+                ♥
+            </span>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= PIE DE PÁGINA ================= -->
+
+    <footer class="inicio-footer">
+
+        <div class="inicio-footer-texto">
+
+            <p>
+                © 2026 <strong>Dejando Huellas</strong>
+            </p>
+
+            <span class="inicio-separador">|</span>
+
+            <p>Amor, cuidado y bienestar para tus mascotas.</p>
+
+            <span class="inicio-footer-pata" aria-hidden="true">🐾</span>
+
+        </div>
+
+
+        <div class="inicio-redes" aria-label="Redes sociales">
+
+            <a href="https://www.instagram.com/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram">
+                ◎
+            </a>
+
+            <span>|</span>
+
+            <a href="https://www.tiktok.com/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="TikTok">
+                ♪
+            </a>
+
+            <a href="https://www.youtube.com/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="YouTube">
+                ▶
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

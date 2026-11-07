@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis mascotas | Dejando Huellas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+    <style>
+        .mascotas-contenedor {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .mascotas-titulo {
+            text-align: center;
+            color: #754b83;
+            margin-bottom: 10px;
+        }
+
+        .mascotas-descripcion {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .formulario-mascota {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px #00000012;
+            margin-bottom: 35px;
+        }
+
+        .formulario-mascota h2 {
+            color: #754b83;
+            margin-bottom: 20px;
+        }
+
+        .campos-mascota {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .campo-mascota {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .campo-mascota label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        .campo-mascota input,
+        .campo-mascota select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .boton-guardar {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #9b70aa;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .boton-guardar:hover {
+            background: #754b83;
+        }
+
+        .lista-mascotas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tarjeta-mascota {
+            background: white;
+            padding: 22px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px #00000012;
+            border-top: 5px solid #c49bd1;
+        }
+
+        .mascota-icono {
+            font-size: 40px;
+        }
+
+        .tarjeta-mascota h3 {
+            color: #754b83;
+            margin: 10px 0;
+        }
+
+        .tarjeta-mascota p {
+            margin: 7px 0;
+            color: #555;
+        }
+
+        .acciones-mascota {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .acciones-mascota button {
+            padding: 9px 14px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .editar {
+            background: #eadcf0;
+            color: #754b83;
+        }
+
+        .eliminar {
+            background: #ffe1e1;
+            color: #a33333;
+        }
+
+        .sin-mascotas {
+            text-align: center;
+            color: #777;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .campos-mascota {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <body class="pagina-inicio"></body>
+<header class="inicio-header">
+
+    <a class="inicio-logo" href="inicio.html">
+        Dejando Huellas <span class="inicio-logo-pata">🐾</span>
+    </a>
+
+    <button class="inicio-menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menú"
+            aria-expanded="false">
+        ☰
+    </button>
+
+    <nav class="inicio-nav" id="mainNav">
+
+        <a class="inicio-nav-link" href="inicio.html">
+            <span>⌂</span> Inicio
+        </a>
+
+        <a class="inicio-nav-link" href="citas.html">
+            <span>▦</span> Citas
+        </a>
+
+        <a class="inicio-nav-link" href="productos.html">
+            <span>♧</span> Productos
+        </a>
+
+        <a class="inicio-nav-link" href="cuidado.html">
+            <span>♡</span> Cuidado
+        </a>
+
+        <a class="inicio-nav-link activo"
+           href="mis-mascotas.html"
+           aria-current="page">
+            <span>🐾</span> Mis mascotas
+        </a>
+
+        <div class="inicio-mas-contenedor">
+
+            <button class="inicio-nav-link" id="masToggle"
+                    aria-expanded="false">
+                <span>⋯</span> Más⌄
+            </button>
+
+            <div class="inicio-dropdown" id="masMenu" hidden>
+                <a href="mis-citas.html">Mis citas</a>
+                <a href="historial.html">Historial</a>
+                <a href="ayuda.html">Ayuda</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="inicio-perfil-contenedor">
+
+        <button class="inicio-perfil" id="perfilToggle"
+                aria-expanded="false">
+
+            <span class="inicio-avatar">
+                <i class="fa-solid fa-user"></i>
+            </span>
+
+            <span class="inicio-saludo">
+                Hola, <strong id="nombre-usuario"></strong>
+            </span>
+
+            <span>⌄</span>
+        </button>
+
+        <div class="inicio-dropdown" id="perfilMenu" hidden>
+            <a href="perfil.html">Mi perfil</a>
+            <a href="mis-mascotas.html">Mis mascotas</a>
+            <a href="mis-citas.html">Mis citas</a>
+            <a href="historial.html">Historial</a>
+            <button type="button" id="cerrarSesion">
+                Cerrar sesión
+            </button>
+        </div>
+
+    </div>
+
+</header>
+
+
+    <main class="mascotas-contenedor">
+
+        <h1 class="mascotas-titulo">🐾 Mis mascotas</h1>
+
+        <p class="mascotas-descripcion">
+            Registra y administra la información de tus compañeros peludos.
+        </p>
+
+        <section class="formulario-mascota">
+            <h2 id="titulo-formulario">Registrar una mascota</h2>
+
+            <form id="formulario-mascota">
+
+                <div class="campos-mascota">
+
+                    <div class="campo-mascota">
+                        <label for="nombre">Nombre de la mascota</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+
+                    <div class="campo-mascota">
+                        <label for="especie">Especie</label>
+                        <select id="especie" required>
+                            <option value="">Selecciona</option>
+                            <option value="Perro">Perro</option>
+                            <option value="Gato">Gato</option>
+                            <option value="Ave">Ave</option>
+                            <option value="Conejo">Conejo</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-mascota">
+                        <label for="raza">Raza</label>
+                        <input type="text" id="raza" placeholder="Ej. Criollo">
+                    </div>
+
+                    <div class="campo-mascota">
+                        <label for="edad">Edad</label>
+                        <input type="number" id="edad" min="0" max="100" required>
+                    </div>
+
+                    <div class="campo-mascota">
+                        <label for="sexo">Sexo</label>
+                        <select id="sexo" required>
+                            <option value="">Selecciona</option>
+                            <option value="Macho">Macho</option>
+                            <option value="Hembra">Hembra</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-mascota">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" id="peso" min="0" step="0.1" required>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="boton-guardar" id="boton-guardar">
+                    Guardar mascota
+                </button>
+
+                <button type="button" class="boton-guardar"
+                    id="boton-cancelar" hidden>
+                    Cancelar edición
+                </button>
+
+            </form>
+        </section>
+
+        <section>
+            <h2 class="mascotas-titulo">Mis compañeros 🐶</h2>
+            <div id="lista-mascotas" class="lista-mascotas"></div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const sesion = JSON.parse(
+                sessionStorage.getItem("dejanHuellaSesion")
+            );
+
+            if (!sesion || !sesion.correo) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            const correoUsuario = sesion.correo;
+
+            const formulario = document.getElementById("formulario-mascota");
+            const lista = document.getElementById("lista-mascotas");
+
+            const campoNombre = document.getElementById("nombre");
+            const campoEspecie = document.getElementById("especie");
+            const campoRaza = document.getElementById("raza");
+            const campoEdad = document.getElementById("edad");
+            const campoSexo = document.getElementById("sexo");
+            const campoPeso = document.getElementById("peso");
+
+            const botonGuardar = document.getElementById("boton-guardar");
+            const botonCancelar = document.getElementById("boton-cancelar");
+            const tituloFormulario = document.getElementById("titulo-formulario");
+
+            let mascotas = JSON.parse(
+                localStorage.getItem("dejanHuellaMascotas")
+            ) || [];
+
+            let mascotaEditando = null;
+
+            function guardarDatos() {
+                localStorage.setItem(
+                    "dejanHuellaMascotas",
+                    JSON.stringify(mascotas)
+                );
+            }
+
+            function mostrarMascotas() {
+                lista.innerHTML = "";
+
+                const misMascotas = mascotas.filter(
+                    mascota => mascota.correoUsuario === correoUsuario
+                );
+
+                if (misMascotas.length === 0) {
+                    lista.innerHTML = `
+                        <div class="sin-mascotas">
+                            <h3>Aún no tienes mascotas registradas 🐾</h3>
+                            <p>Usa el formulario para agregar tu primera mascota.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                misMascotas.forEach(mascota => {
+                    const tarjeta = document.createElement("article");
+                    tarjeta.className = "tarjeta-mascota";
+
+                    const icono = mascota.especie === "Gato" ? "🐱" :
+                                  mascota.especie === "Ave" ? "🐦" :
+                                  mascota.especie === "Conejo" ? "🐰" : "🐶";
+
+                    const titulo = document.createElement("h3");
+                    titulo.textContent = icono + " " + mascota.nombre;
+
+                    const datos = [
+                        "Especie: " + mascota.especie,
+                        "Raza: " + (mascota.raza || "No especificada"),
+                        "Edad: " + mascota.edad + " años",
+                        "Sexo: " + mascota.sexo,
+                        "Peso: " + mascota.peso + " kg"
+                    ];
+
+                    tarjeta.appendChild(titulo);
+
+                    datos.forEach(dato => {
+                        const parrafo = document.createElement("p");
+                        parrafo.textContent = dato;
+                        tarjeta.appendChild(parrafo);
+                    });
+
+                    const acciones = document.createElement("div");
+                    acciones.className = "acciones-mascota";
+
+                    const editar = document.createElement("button");
+                    editar.textContent = "Editar";
+                    editar.className = "editar";
+                    editar.type = "button";
+                    editar.addEventListener("click", () => editarMascota(mascota.id));
+
+                    const eliminar = document.createElement("button");
+                    eliminar.textContent = "Eliminar";
+                    eliminar.className = "eliminar";
+                    eliminar.type = "button";
+                    eliminar.addEventListener("click", () => eliminarMascota(mascota.id));
+
+                    acciones.append(editar, eliminar);
+                    tarjeta.appendChild(acciones);
+                    lista.appendChild(tarjeta);
+                });
+            }
+
+            formulario.addEventListener("submit", (evento) => {
+                evento.preventDefault();
+
+                const datos = {
+                    nombre: campoNombre.value.trim(),
+                    especie: campoEspecie.value,
+                    raza: campoRaza.value.trim(),
+                    edad: campoEdad.value,
+                    sexo: campoSexo.value,
+                    peso: campoPeso.value
+                };
+
+                if (mascotaEditando !== null) {
+                    const indice = mascotas.findIndex(
+                        mascota =>
+                            mascota.id === mascotaEditando &&
+                            mascota.correoUsuario === correoUsuario
+                    );
+
+                    if (indice !== -1) {
+                        mascotas[indice] = {
+                            ...mascotas[indice],
+                            ...datos
+                        };
+                    }
+                } else {
+                    mascotas.push({
+                        id: Date.now().toString(),
+                        correoUsuario: correoUsuario,
+                        ...datos
+                    });
+                }
+
+                guardarDatos();
+                mostrarMascotas();
+                limpiarFormulario();
+            });
+
+            function editarMascota(id) {
+                const mascota = mascotas.find(
+                    m => m.id === id && m.correoUsuario === correoUsuario
+                );
+
+                if (!mascota) return;
+
+                campoNombre.value = mascota.nombre;
+                campoEspecie.value = mascota.especie;
+                campoRaza.value = mascota.raza;
+                campoEdad.value = mascota.edad;
+                campoSexo.value = mascota.sexo;
+                campoPeso.value = mascota.peso;
+
+                mascotaEditando = id;
+                tituloFormulario.textContent = "Editar mascota";
+                botonGuardar.textContent = "Guardar cambios";
+                botonCancelar.hidden = false;
+
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+
+            function eliminarMascota(id) {
+                const confirmar = confirm(
+                    "¿Estás seguro de que deseas eliminar esta mascota?"
+                );
+
+                if (!confirmar) return;
+
+                mascotas = mascotas.filter(
+                    mascota =>
+                        !(mascota.id === id &&
+                          mascota.correoUsuario === correoUsuario)
+                );
+
+                guardarDatos();
+                mostrarMascotas();
+            }
+
+            function limpiarFormulario() {
+                formulario.reset();
+                mascotaEditando = null;
+                tituloFormulario.textContent = "Registrar una mascota";
+                botonGuardar.textContent = "Guardar mascota";
+                botonCancelar.hidden = true;
+            }
+
+            botonCancelar.addEventListener("click", limpiarFormulario);
+
+            const nombreUsuario = document.getElementById("nombre-usuario");
+            if (nombreUsuario) {
+                nombreUsuario.textContent = sesion.nombres.split(" ")[0];
+            }
+
+            mostrarMascotas();
+        });
+    </script>
+
+</body>
+</html>
